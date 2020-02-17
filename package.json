@@ -2,7 +2,7 @@
 	"name": "black-birch",
 	"version": "1.0.0",
 	"description": "This is a growing collection of my personal Sass helpers",
-	"main": "styles/index.scss",
+	"main": "black-birch.scss",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/nikbrunner/black-birch.git"
@@ -14,6 +14,6 @@
 	"author": "nibru",
 	"license": "MIT",
 	"dependencies": {
-		"normalize.css": "*"
+		"normalize.css": "^8.0.1"
 	}
 }
