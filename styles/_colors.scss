@@ -1,0 +1,61 @@
+// Colors
+// Original Palette
+// $bright-color: #c7f0db;
+// $mid1-color: #b5dcdd;
+// $mid1-color: #8bbabb;
+// $mid2-color: #6c7b95;
+// $dark-color: #464159;
+// $accent-color: scale-color(
+//   saturate(complement($mid2-color), 100%),
+//   $lightness: 20%
+// );
+
+// Shades via Sass
+$mid1-color: #7488b1;
+$bright-color: scale-color($mid1-color, $lightness: 50%);
+$mid2-color: scale-color($mid1-color, $lightness: -50%);
+$accent-color: scale-color(
+	saturate(complement($mid2-color), 100%),
+	$lightness: 35%
+);
+$dark-color: desaturate(
+	scale-color($mid1-color, $lightness: -77.5%),
+	15%
+);
+$stickyHeader-color: desaturate(
+	scale-color($mid1-color, $lightness: -72.5%),
+	5%
+);
+
+// CV Page specific color
+$dark-gray--cv: #24292e;
+$light-gray--cv: #dfe2e5;
+$table-gray--cv: #f6f8fa;
+$mid-gray--cv: adjust-color(
+	$light-gray--cv,
+	$lightness: -5%,
+	$hue: -5deg
+);
+$accent-color--cv: #0366d6;
+
+// Palette transparencies
+$bright-color-transparent: adjust-color(
+	$bright-color,
+	$alpha: -0.25
+);
+$mid1-color-transparent: adjust-color(
+	$mid1-color,
+	$alpha: -0.15
+);
+$mid2-color-transparent: adjust-color(
+	$mid2-color,
+	$alpha: -0.15
+);
+$accent-color-transparent: adjust-color(
+	$accent-color,
+	$alpha: -0.5
+);
+$dark-color-transparent: adjust-color(
+	$dark-color,
+	$alpha: -0.25
+);

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@import 'variables';
+
+@keyframes speechBubble {
+  from {
+    border-radius: 25% 75% 36% 64% / 65% 37% 63% 35%;
+  }
+  to {
+    border-radius: 52% 48% 49% 51% / 60% 54% 46% 40%;
+  }
+}
+
+@keyframes fire {
+  from {
+    transform: scale3d(1, 0.9, 1);
+    opacity: 0.15;
+  }
+  to {
+    transform: scale3d(1.1, 1.5, 1);
+    opacity: 0.5;
+    top: -33%;
+  }
+}
+
+@keyframes breedingEgg {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(365deg);
+  }
+}
