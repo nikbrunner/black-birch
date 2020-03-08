@@ -1,6 +1,6 @@
 {
   "name": "stillness",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a growing collection of my personal Sass helpers",
   "main": "./stillness/stillness.scss",
   "repository": {
