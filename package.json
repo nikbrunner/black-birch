@@ -1,19 +1,17 @@
 {
-	"name": "black-birch",
-	"version": "1.0.0",
-	"description": "This is a growing collection of my personal Sass helpers",
-	"main": "black-birch.scss",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/nikbrunner/black-birch.git"
-	},
-	"keywords": [
-		"Sass",
-		"SCSS"
-	],
-	"author": "nibru",
-	"license": "MIT",
-	"dependencies": {
-		"normalize.css": "^8.0.1"
-	}
+  "name": "stillness",
+  "version": "0.0.1",
+  "description": "This is a growing collection of my personal Sass helpers",
+  "main": "./stillness/stillness.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikbrunner/stillness.git"
+  },
+  "keywords": [
+    "Sass",
+    "SCSS"
+  ],
+  "author": "nibru",
+  "license": "MIT",
+  "dependencies": {}
 }
