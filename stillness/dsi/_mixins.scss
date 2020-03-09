@@ -1,0 +1,108 @@
+@import 'variables';
+@import 'colors';
+
+@mixin grid($columns, $column-gap: $space-m, $rows, $row-gap: $space-m) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-column-gap: $column-gap;
+  grid-template-rows: $rows;
+  grid-row-gap: $row-gap;
+}
+
+@mixin flex(
+  $flex-flow,
+  $justify-content: center,
+  $align-content: center,
+  $align-items: center
+) {
+  display: flex;
+  flex-flow: $flex-flow;
+  justify-content: $justify-content;
+  align-content: $align-content;
+  align-items: $align-items;
+}
+
+@mixin linearGradientBG(
+  $color1,
+  $color1-threshold,
+  $color2,
+  $color2-threshold,
+  $dir
+) {
+  background: $color1;
+  background: linear-gradient(
+    $dir,
+    $color1 $color1-threshold,
+    $color2 $color2-threshold
+  );
+}
+
+@mixin radialGradientBG(
+  $color1,
+  $color1-threshold,
+  $color2,
+  $color2-threshold,
+  $dir
+) {
+  background: $color1;
+  background: radial-gradient(
+    $dir,
+    $color1 $color1-threshold,
+    $color2 $color2-threshold
+  );
+}
+
+@mixin progressBar($skillLevel) {
+  background: transparent;
+  background: linear-gradient(
+    90deg,
+    $dark-color 0%,
+    $mid1-color $skillLevel,
+    rgba(255, 255, 255, 0) $skillLevel,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+@mixin columns($column-count, $column-gap, $column-rule) {
+  column-count: $column-count;
+  column-gap: $column-gap;
+  column-rule: $column-rule;
+}
+
+@mixin mobileTableScroll() {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: auto;
+}
+
+@mixin sticky($z-index) {
+  @include boxShadow--tight();
+  background: $stickyHeader-color;
+  display: block;
+  width: 100%;
+  position: sticky;
+  top: $header-height;
+  z-index: $z-index;
+}
+
+// Shadows
+@mixin boxShadow--std($opacity) {
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, $opacity);
+}
+@mixin boxShadow--std--hover($opacity) {
+  box-shadow: 0 0.15rem 0.75rem rgba(0, 0, 0, $opacity);
+}
+
+@mixin boxShadow--tight($shadow--color: #0f0f0f33) {
+  box-shadow: $shadow--color 0px 2px 4px;
+}
+
+@mixin boxShadow--tight--inset($shadow--color: #0f0f0f33) {
+  box-shadow: $shadow--color 0px 0px 0px 1px inset,
+    $shadow--color 0px 0px 4px inset;
+}
+
+@mixin textShadow() {
+  text-shadow: 0 1px rgba(0, 0, 0, 0.25);
+}

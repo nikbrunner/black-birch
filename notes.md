@@ -34,11 +34,11 @@ Single file documentation (e.g. `_colors.scss`)
 
 ## Features
 
-### DFI Version
+### DSI Version
 
-_Direct Folder Insertion_
+_Direct Source Import_
 
-The DFI Version should have more files, since we have direct access to variables and the source-code.
+The DSI Version should have more files, since we have direct access to variables and the source-code.
 
 ### NPM
 
@@ -46,8 +46,20 @@ All code which doesn't require direct manipulation. Like `_mixins.scss`
 
 ## Todos
 
-- [ ] Coding
-  - [ ] Prepare DFI Version
-  - [ ] Prepare NPM Version
+- [ ] Prep
+  - [x] Prepare DSI Folder
+
+     - `/stillness/dsi`
+
+     - Copy bash script for NPM Version
+
+  - [x] Prepare NPM Folder
+    - `stillness/npm/`
+
+- [ ] Code styles
+
 - [ ] Write out README
+
 - [ ] Build Website
+
+- [ ] Nord Colors as Standard Colors

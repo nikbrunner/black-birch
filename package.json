@@ -2,7 +2,10 @@
   "name": "stillness",
   "version": "0.0.2",
   "description": "This is a growing collection of my personal Sass helpers",
-  "main": "./stillness/stillness.scss",
+  "main": "./stillness/npm/stillness.scss",
+  "scripts": {
+    "buildNpm": "bash ./buildNpmFolder.sh"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nikbrunner/stillness.git"

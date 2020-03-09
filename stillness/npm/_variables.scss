@@ -1,0 +1,56 @@
+@import 'uni-space';
+@import 'colors';
+
+// Fonts
+$header-font: 'Fira Sans', 'Raleway', sans-serif;
+$text-font: 'Fira Sans', 'Raleway', sans-serif;
+$mono-font: 'Fira Code', 'Fantasque Sans Mono', sans-serif;
+
+$font-size-m: 1rem;
+
+$font-size-xs: calc(#{$font-size-m} * 0.75);
+$font-size-s: calc(#{$font-size-m} * 0.85);
+$font-size-l: calc(#{$font-size-m} * 1.25);
+$font-size-xs: calc(#{$font-size-s} * 0.75);
+$font-size-xl: calc(#{$font-size-l} * 1.5);
+$font-size-xxl: calc(#{$font-size-xl} * 2);
+$font-size-xxxl: calc(#{$font-size-xxl} * 1.5);
+$line-height: 1.5rem;
+
+// Breakpoints
+$breakpoint-xxxl: 3440px;
+$breakpoint-xxl: 2048px;
+$breakpoint-iPadPro: 1366px;
+$breakpoint-xl: 1440px;
+$breakpoint-l: 1024px;
+$breakpoint-m: 768px;
+$breakpoint-s: 415px;
+$breakpoint-iPhoneX: 375px;
+$breakpoint-xs: 360px;
+$breakpoint-xxs: 320px;
+
+// Wrapper
+$wrapper-width--narrowest: 35vw;
+$wrapper-width--narrower: 45vw;
+$wrapper-width--normal: 70vw;
+$wrapper-width--wider: 75vw;
+$wrapper-width--widest: 90vw;
+$wrapper-width--full: 100vw;
+
+$wrapper-padding--l: $space-l;
+$wrapper-padding--m: $space-m;
+$wrapper-padding--s: $space-s;
+
+// Header
+$header-height: 50px;
+
+// scrollToMenu
+$scrollToMenu-height: calc(#{$header-height} / 1.5);
+
+// Border-radius
+$border-radius: $space-xxs;
+
+// Transition
+$trans-fast: 0.25s;
+$trans-normal: 0.5s;
+$trans-slow: 0.75s;
