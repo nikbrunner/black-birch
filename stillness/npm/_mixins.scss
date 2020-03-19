@@ -87,22 +87,42 @@
 }
 
 // Shadows
-@mixin boxShadow--std($opacity) {
-  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, $opacity);
-}
-@mixin boxShadow--std--hover($opacity) {
-  box-shadow: 0 0.15rem 0.75rem rgba(0, 0, 0, $opacity);
-}
+@mixin boxShadow(
+  $color: #000,
+  $x: 0px,
+  $y: 1px,
+  $blurFac: 2,
+  $exp: 1,
+  $transp: 0.95
+) {
+  $transpColor: transparentize($color, $transp);
 
-@mixin boxShadow--tight($shadow--color: #0f0f0f33) {
-  box-shadow: $shadow--color 0px 2px 4px;
-}
+  $x-1: calc((#{$x} * #{$exp}) * 1);
+  $y-1: calc((#{$y} * #{$exp}) * 1);
+  $blur-1: calc((((#{$y-1} * #{$blurFac})) * #{$exp}) * 1);
 
-@mixin boxShadow--tight--inset($shadow--color: #0f0f0f33) {
-  box-shadow: $shadow--color 0px 0px 0px 1px inset,
-    $shadow--color 0px 0px 4px inset;
-}
+  $x-2: calc((#{$x} * #{$exp}) * 2);
+  $y-2: calc((#{$y} * #{$exp}) * 2);
+  $blur-2: calc((((#{$y-2} * #{$blurFac})) * #{$exp}) * 2);
 
-@mixin textShadow() {
-  text-shadow: 0 1px rgba(0, 0, 0, 0.25);
+  $x-3: calc((#{$x} * #{$exp}) * 3);
+  $y-3: calc((#{$y} * #{$exp}) * 3);
+  $blur-3: calc((((#{$y-3} * #{$blurFac})) * #{$exp}) * 3);
+
+  $x-4: calc((#{$x} * #{$exp}) * 4);
+  $y-4: calc((#{$y} * #{$exp}) * 4);
+  $blur-4: calc((((#{$y-4} * #{$blurFac})) * #{$exp}) * 4);
+
+  $x-5: calc((#{$x} * #{$exp}) * 5);
+  $y-5: calc((#{$y} * #{$exp}) * 5);
+  $blur-5: calc((((#{$y-5} * #{$blurFac})) * #{$exp}) * 5);
+
+  $x-6: calc((#{$x} * #{$exp}) * 6);
+  $y-6: calc((#{$y} * #{$exp}) * 6);
+  $blur-6: calc((((#{$y-6} * #{$blurFac})) * #{$exp}) * 6);
+
+  box-shadow: $x-1 $y-1 $blur-1 $transpColor,
+    $x-1 $y-2 $blur-2 $transpColor, $x-1 $y-3 $blur-3 $transpColor,
+    $x-1 $y-4 $blur-4 $transpColor, $x-1 $y-5 $blur-5 $transpColor,
+    $x-1 $y-6 $blur-6 $transpColor;
 }
