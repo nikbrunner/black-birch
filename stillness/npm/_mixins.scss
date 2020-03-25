@@ -126,3 +126,13 @@
     $x-1 $y-4 $blur-4 $transpColor, $x-1 $y-5 $blur-5 $transpColor,
     $x-1 $y-6 $blur-6 $transpColor;
 }
+
+@mixin browser($browsers: Mozilla) {
+  // Source & Usage: http://aslanbakan.com/en/blog/browser-and-device-specific-css-styles-with-sass-and-less-mixins/
+  // JS: document.documentElement.setAttribute("data-browser", navigator.userAgent);
+  @each $browser in $browsers {
+    html[data-browser*='#{$browser}'] & {
+      @content;
+    }
+  }
+}
