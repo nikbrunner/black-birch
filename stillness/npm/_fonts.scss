@@ -1,0 +1,9 @@
+// Font-sizes
+$font-size-m: 1rem;
+
+$font-size-xs: calc(#{$font-size-m} * 0.75);
+$font-size-s: calc(#{$font-size-m} * 0.85);
+$font-size-l: calc(#{$font-size-m} * 1.25);
+$font-size-xl: calc(#{$font-size-m} * 1.75);
+$font-size-xxl: calc(#{$font-size-m} * 2);
+$font-size-xxxl: calc(#{$font-size-m} * 2.75);

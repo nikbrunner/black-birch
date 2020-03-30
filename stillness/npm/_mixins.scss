@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'colors';
 
+// Layout
 @mixin grid($columns, $column-gap: $space-m, $rows, $row-gap: $space-m) {
   display: grid;
   grid-template-columns: $columns;
@@ -22,6 +23,7 @@
   align-items: $align-items;
 }
 
+// Backgrounds
 @mixin linearGradientBG(
   $color1,
   $color1-threshold,
@@ -76,16 +78,6 @@
   width: auto;
 }
 
-@mixin sticky($z-index) {
-  @include boxShadow--tight();
-  background: $stickyHeader-color;
-  display: block;
-  width: 100%;
-  position: sticky;
-  top: $header-height;
-  z-index: $z-index;
-}
-
 // Shadows
 @mixin boxShadow(
   $color: #000,
@@ -127,12 +119,44 @@
     $x-1 $y-6 $blur-6 $transpColor;
 }
 
-@mixin browser($browsers: Mozilla) {
-  // Source & Usage: http://aslanbakan.com/en/blog/browser-and-device-specific-css-styles-with-sass-and-less-mixins/
-  // JS: document.documentElement.setAttribute("data-browser", navigator.userAgent);
-  @each $browser in $browsers {
-    html[data-browser*='#{$browser}'] & {
-      @content;
+// Element stylings
+@mixin buttonStyle(
+  $color: $color-white,
+  $bgColor: false,
+  $font-size: $font-size-m,
+  $border-radius: 0,
+  $hoverActive: false
+) {
+  cursor: pointer;
+  color: $color;
+  display: block;
+  padding: $space-m $space-l;
+  border-radius: $border-radius;
+  font-weight: bold;
+  font-family: $text-font;
+  font-size: $font-size;
+
+  @if ($bgColor) {
+    background: $bgColor;
+    border: 3px solid $bgColor;
+  } @else {
+    background: transparent;
+    border: 3px solid $color;
+  }
+
+  @if ($hoverActive) {
+    @if ($bgColor) {
+      &:hover {
+        background: transparentize($color: $color, $amount: 0.75);
+      }
+    } @else {
+      &:hover {
+        background: $color;
+        border: 3px solid $bgColor;
+        color: $bgColor;
+      }
     }
   }
+
+  @content;
 }

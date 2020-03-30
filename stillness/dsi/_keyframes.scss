@@ -1,7 +1,63 @@
 @charset "UTF-8";
 @import 'variables';
+@import 'uni-space';
 
-@keyframes speechBubble {
+// Animation 'hover'
+@-webkit-keyframes hover {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    @include boxShadow($y: $space-m);
+    -webkit-transform: translateY(calc(#{$space-m} * -1));
+            transform: translateY(calc(#{$space-m} * -1));
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes hover {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    @include boxShadow($y: $space-m);
+    -webkit-transform: translateY(calc(#{$space-m} * -1));
+            transform: translateY(calc(#{$space-m} * -1));
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+// Animation 'spin'
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(365deg);
+            transform: rotate(365deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(365deg);
+            transform: rotate(365deg);
+  }
+}
+
+// Animation - speechBubble
+@-webkit-keyframes speechBubble {
   from {
     border-radius: 25% 75% 36% 64% / 65% 37% 63% 35%;
   }
@@ -9,37 +65,11 @@
     border-radius: 52% 48% 49% 51% / 60% 54% 46% 40%;
   }
 }
-
-@keyframes fire {
+@keyframes speechBubble {
   from {
-    transform: scale3d(1, 0.9, 1);
-    opacity: 0.15;
+    border-radius: 25% 75% 36% 64% / 65% 37% 63% 35%;
   }
   to {
-    transform: scale3d(1.1, 1.5, 1);
-    opacity: 0.5;
-    top: -33%;
-  }
-}
-
-@keyframes breedingEgg {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-0.5rem);
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(365deg);
+    border-radius: 52% 48% 49% 51% / 60% 54% 46% 40%;
   }
 }

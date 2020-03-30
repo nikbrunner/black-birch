@@ -1,0 +1,21 @@
+$header-font-name: 'Fira Sans';
+$text-font-name: 'Fira Sans';
+$mono-font-name: 'Operator Mono';
+
+// Font-declarations
+$header-font: $header-font-name, sans-serif;
+$text-font: $text-font-name, sans-serif;
+$mono-font: $mono-font-name, sans-serif;
+
+// Font-sizes
+$font-size-m: 1rem;
+
+$font-size-xs: calc(#{$font-size-m} * 0.75);
+$font-size-s: calc(#{$font-size-m} * 0.85);
+$font-size-l: calc(#{$font-size-m} * 1.25);
+$font-size-xl: calc(#{$font-size-m} * 1.75);
+$font-size-xxl: calc(#{$font-size-m} * 2);
+$font-size-xxxl: calc(#{$font-size-m} * 2.75);
+
+// Define local fonts
+// ...

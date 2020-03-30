@@ -1,61 +1,27 @@
 // Colors
-// Original Palette
-// $bright-color: #c7f0db;
-// $mid1-color: #b5dcdd;
-// $mid1-color: #8bbabb;
-// $mid2-color: #6c7b95;
-// $dark-color: #464159;
-// $accent-color: scale-color(
-//   saturate(complement($mid2-color), 100%),
-//   $lightness: 20%
-// );
+/*
+* Static color-palette
+*/
+// $color-bright: #c7f0db;
+// $color-mid-bright: #8bbabb;
+// $color-mid-dark: #6c7b95;
+// $color-dark: #464159;
+// $color-accent: #e9c80a;
 
-// Shades via Sass
-$mid1-color: #7488b1;
-$bright-color: scale-color($mid1-color, $lightness: 50%);
-$mid2-color: scale-color($mid1-color, $lightness: -50%);
-$accent-color: scale-color(
-	saturate(complement($mid2-color), 100%),
-	$lightness: 35%
-);
-$dark-color: desaturate(
-	scale-color($mid1-color, $lightness: -77.5%),
-	15%
-);
-$stickyHeader-color: desaturate(
-	scale-color($mid1-color, $lightness: -72.5%),
-	5%
-);
+/*
+* Automatic palette-generation via Sass
+* If you use this, don't forget to comment out the static palette above
+* You can set the generation-variables for adjusting the results
+*/
+$color-base: #8bbabb;
+$color-bright-lightness-scale: 50%;
+$color-mid-dark-lightness-scale: -50%;
+$color-dark-lightness-scale: -77.5%;
+$color-dark-desaturate-level: 15%;
+$color-accent-hue-degree: 180deg;
 
-// CV Page specific color
-$dark-gray--cv: #24292e;
-$light-gray--cv: #dfe2e5;
-$table-gray--cv: #f6f8fa;
-$mid-gray--cv: adjust-color(
-	$light-gray--cv,
-	$lightness: -5%,
-	$hue: -5deg
-);
-$accent-color--cv: #0366d6;
-
-// Palette transparencies
-$bright-color-transparent: adjust-color(
-	$bright-color,
-	$alpha: -0.25
-);
-$mid1-color-transparent: adjust-color(
-	$mid1-color,
-	$alpha: -0.15
-);
-$mid2-color-transparent: adjust-color(
-	$mid2-color,
-	$alpha: -0.15
-);
-$accent-color-transparent: adjust-color(
-	$accent-color,
-	$alpha: -0.5
-);
-$dark-color-transparent: adjust-color(
-	$dark-color,
-	$alpha: -0.25
-);
+$color-bright: scale-color($color-base, $lightness: $color-bright-lightness-scale);
+$color-mid-bright: $color-base;
+$color-mid-dark: scale-color($color-base, $lightness: $color-mid-dark-lightness-scale);
+$color-dark: desaturate(scale-color($color-base, $lightness: $color-dark-lightness-scale), $color-dark-desaturate-level);
+$accent-color: scale-color(saturate(adjust-hue($color-mid-dark, $color-accent-hue-degree), 100%), $lightness: 35%);

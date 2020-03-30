@@ -1,7 +1,9 @@
 @import 'variables';
 @import 'colors';
 
+// Layout
 @mixin grid($columns, $column-gap: $space-m, $rows, $row-gap: $space-m) {
+  // TODO Prefixes ?
   display: grid;
   grid-template-columns: $columns;
   grid-column-gap: $column-gap;
@@ -15,13 +17,24 @@
   $align-content: center,
   $align-items: center
 ) {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: $flex-flow;
   flex-flow: $flex-flow;
+  -webkit-box-pack: $justify-content;
+  -ms-flex-pack: $justify-content;
   justify-content: $justify-content;
+  -ms-flex-line-pack: $align-content;
   align-content: $align-content;
+  -webkit-box-align: $align-items;
+  -ms-flex-align: $align-items;
   align-items: $align-items;
 }
 
+// Backgrounds
 @mixin linearGradientBG(
   $color1,
   $color1-threshold,
@@ -30,6 +43,18 @@
   $dir
 ) {
   background: $color1;
+  background: -webkit-gradient(
+    linear,
+    left top, left bottom,
+    from($dir),
+    color-stop($color1-threshold, $color1),
+    color-stop($color2-threshold, $color2)
+  );
+  background: -o-linear-gradient(
+    $dir,
+    $color1 $color1-threshold,
+    $color2 $color2-threshold
+  );
   background: linear-gradient(
     $dir,
     $color1 $color1-threshold,
@@ -45,6 +70,11 @@
   $dir
 ) {
   background: $color1;
+  background: -o-radial-gradient(
+    $dir,
+    $color1 $color1-threshold,
+    $color2 $color2-threshold
+  );
   background: radial-gradient(
     $dir,
     $color1 $color1-threshold,
@@ -52,38 +82,49 @@
   );
 }
 
-@mixin progressBar($skillLevel) {
+@mixin progressBarBg(
+  $skillLevel: 35%,
+  $color: green
+) {
   background: transparent;
+  background: -webkit-gradient(
+    linear,
+    left top, right top,
+    from($color),
+    color-stop($skillLevel, $color),
+    color-stop($skillLevel, rgba(255, 255, 255, 0)),
+    to(rgba(255, 255, 255, 0))
+  );
+  background: -o-linear-gradient(
+    left,
+    $color 0%,
+    $color $skillLevel,
+    rgba(255, 255, 255, 0) $skillLevel,
+    rgba(255, 255, 255, 0) 100%
+  );
   background: linear-gradient(
     90deg,
-    $dark-color 0%,
-    $mid1-color $skillLevel,
+    $color 0%,
+    $color $skillLevel,
     rgba(255, 255, 255, 0) $skillLevel,
     rgba(255, 255, 255, 0) 100%
   );
 }
 
-@mixin columns($column-count, $column-gap, $column-rule) {
-  column-count: $column-count;
-  column-gap: $column-gap;
-  column-rule: $column-rule;
-}
-
-@mixin mobileTableScroll() {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-  width: auto;
-}
-
-@mixin sticky($z-index) {
-  @include boxShadow--tight();
-  background: $stickyHeader-color;
-  display: block;
-  width: 100%;
-  position: sticky;
-  top: $header-height;
-  z-index: $z-index;
+@mixin columns(
+  $column-count: 2,
+  $column-gap: 1rem,
+  $column-rule: 1px solid dashed
+) {
+  -webkit-column-count: $column-count;
+     -moz-column-count: $column-count;
+          column-count: $column-count;
+  -webkit-column-gap: $column-gap;
+     -moz-column-gap: $column-gap;
+          column-gap: $column-gap;
+  -webkit-column-rule: $column-rule;
+     -moz-column-rule: $column-rule;
+          column-rule: $column-rule;
 }
 
 // Shadows
@@ -121,18 +162,55 @@
   $y-6: calc((#{$y} * #{$exp}) * 6);
   $blur-6: calc((((#{$y-6} * #{$blurFac})) * #{$exp}) * 6);
 
-  box-shadow: $x-1 $y-1 $blur-1 $transpColor,
+  -webkit-box-shadow: $x-1 $y-1 $blur-1 $transpColor,
+    $x-1 $y-2 $blur-2 $transpColor, $x-1 $y-3 $blur-3 $transpColor,
+    $x-1 $y-4 $blur-4 $transpColor, $x-1 $y-5 $blur-5 $transpColor,
+    $x-1 $y-6 $blur-6 $transpColor;
+
+          box-shadow: $x-1 $y-1 $blur-1 $transpColor,
     $x-1 $y-2 $blur-2 $transpColor, $x-1 $y-3 $blur-3 $transpColor,
     $x-1 $y-4 $blur-4 $transpColor, $x-1 $y-5 $blur-5 $transpColor,
     $x-1 $y-6 $blur-6 $transpColor;
 }
 
-@mixin browser($browsers: Mozilla) {
-  // Source & Usage: http://aslanbakan.com/en/blog/browser-and-device-specific-css-styles-with-sass-and-less-mixins/
-  // JS: document.documentElement.setAttribute("data-browser", navigator.userAgent);
-  @each $browser in $browsers {
-    html[data-browser*='#{$browser}'] & {
-      @content;
+// Element stylings
+@mixin buttonStyle(
+  $color: $color-white,
+  $bgColor: false,
+  $font-size: $font-size-m,
+  $border-radius: 0,
+  $hoverActive: false
+) {
+  cursor: pointer;
+  color: $color;
+  display: block;
+  padding: $space-m $space-l;
+  border-radius: $border-radius;
+  font-weight: bold;
+  font-family: $text-font;
+  font-size: $font-size;
+
+  @if ($bgColor) {
+    background: $bgColor;
+    border: 3px solid $bgColor;
+  } @else {
+    background: transparent;
+    border: 3px solid $color;
+  }
+
+  @if ($hoverActive) {
+    @if ($bgColor) {
+      &:hover {
+        background: transparentize($color: $color, $amount: 0.75);
+      }
+    } @else {
+      &:hover {
+        background: $color;
+        border: 3px solid $bgColor;
+        color: $bgColor;
+      }
     }
   }
+
+  @content;
 }

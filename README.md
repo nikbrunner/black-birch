@@ -14,4 +14,4 @@ Besides the NPM Version the will also be method to import the source folder, for
 - [NPM](https://www.npmjs.com/package/stillness)
 - [Repository](https://github.com/nikbrunner/stillness)
 
-Work In Progress.
+Work In Progress, and not useable yet.
