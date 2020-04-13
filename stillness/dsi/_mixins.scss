@@ -2,7 +2,7 @@
 @import 'colors';
 
 // Layout
-@mixin grid($columns, $column-gap: $space-m, $rows, $row-gap: $space-m) {
+@mixin grid($columns, $column-gap: $space-m, $rows: auto, $row-gap: $space-m) {
   // TODO Prefixes ?
   display: grid;
   grid-template-columns: $columns;

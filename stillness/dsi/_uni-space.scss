@@ -1,5 +1,7 @@
 // uni-space
-$space: 2.5rem;
+$space-value: 2.5rem;
+$space-base: 1;
+$space-multiplier: 2;
 $space-expansion: 1;
 
 $space-xxs: calc((#{$space} / 8) * #{$space-expansion});
